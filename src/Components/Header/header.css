@@ -1,0 +1,18 @@
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(163, 235, 207);
+  padding: 15px;
+}
+
+.header-wrapper > * {
+  padding: 5px;
+}
+
+.search-wrapper {
+  margin-right: auto;
+}
+
+.logo {
+  font-weight: bold;
+}
