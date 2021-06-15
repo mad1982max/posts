@@ -5,14 +5,12 @@
   padding: 15px;
 }
 
-.header-wrapper > * {
+.search-wrapper {
+  margin-right: auto;
   padding: 5px;
 }
 
-.search-wrapper {
-  margin-right: auto;
-}
-
 .logo {
+  padding: 5px;
   font-weight: bold;
 }
