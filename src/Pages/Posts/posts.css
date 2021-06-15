@@ -1,0 +1,29 @@
+.posts-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.posts-wrapper > * {
+  width: 33%;
+  padding: 10px;
+}
+
+/* .posts-wrapper > *:first-of-type {
+  width: 100%;
+} */
+
+@media (max-width: 915px) {
+  .posts-wrapper > * {
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .posts-wrapper > * {
+    width: 100%;
+  }
+}

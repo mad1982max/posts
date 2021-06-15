@@ -1,0 +1,40 @@
+.post-card-inner {
+  box-shadow: 4px 4px 8px 0px rgba(8, 9, 9, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 440px;
+}
+
+.post-title {
+  font-weight: bolder;
+  padding: 10px 5px;
+  text-align: center;
+}
+
+.post-main {
+  padding: 5px;
+}
+
+.post-card-footer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: auto;
+  padding: 5px;
+}
+
+.post-image img {
+  width: 100%;
+  margin: auto;
+}
+
+@media (max-width: 915px) {
+  .post-card-inner {
+    height: 450px;
+  }
+}
+
+@media (max-width: 600px) {
+  .post-card-inner {
+    height: inherit;
+  }
+}
