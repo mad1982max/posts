@@ -9,6 +9,20 @@ import "./posts.css";
 const Posts = () => {
   const { posts, setPosts } = useContext(PostsContext);
   const [isLoading, setIsLoading] = useState(false);
+  const [isAnchorVisible, setIsAnchorVisible] = useState(false);
+
+  const handleScroll = (e) => {
+    if (window.scrollY > 200) {
+      setIsAnchorVisible(true);
+    } else {
+      setIsAnchorVisible(false);
+    }
+  };
+
+  const toTop = () => {
+    setIsAnchorVisible(false);
+    window.scrollTo({ top: 0 });
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -23,14 +37,23 @@ const Posts = () => {
       }
     }
     fetchData();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [setPosts]);
   return (
-    <div className="posts-wrapper">
-      {isLoading && <Loader />}
-      {posts.map((post) => (
-        <SinglePost key={post.id} post={post} />
-      ))}
-    </div>
+    <>
+      <div className="posts-wrapper">
+        {isLoading && <Loader />}
+        {posts.map((post) => (
+          <SinglePost key={post.id} post={post} />
+        ))}
+      </div>
+      {isAnchorVisible && (
+        <div className="top-anchor" onClick={toTop}>
+          TO TOP
+        </div>
+      )}
+    </>
   );
 };
 
