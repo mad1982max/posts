@@ -8,7 +8,7 @@ import "./posts.css";
 
 const Posts = () => {
   const { posts, setPosts } = useContext(PostsContext);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -22,7 +22,7 @@ const Posts = () => {
         console.log(error);
       }
     }
-    //fetchData();
+    fetchData();
   }, [setPosts]);
   return (
     <div className="posts-wrapper">

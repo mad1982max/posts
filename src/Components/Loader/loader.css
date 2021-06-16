@@ -17,13 +17,14 @@
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  background: rgb(4, 46, 126);
-  color: rgb(252, 248, 248);
-  animation: spin 2s linear infinite;
+  background: rgb(204, 202, 202);
+  color: rgb(36, 35, 35);
+  animation: loaderAnimaton 2s linear infinite;
+  box-shadow: 0px 0px 6px 0px rgba(8, 9, 9, 0.2);
   transition: width 2s;
 }
 
-@keyframes spin {
+@keyframes loaderAnimaton {
   0% {
     transform: scale(1) rotate(0deg);
   }
