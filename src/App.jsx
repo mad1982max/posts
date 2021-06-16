@@ -8,10 +8,13 @@ import PostsContext from "./context";
 import "./App.css";
 
 function App() {
-  const [posts, setPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [initPosts, setInitPosts] = useState([]);
   return (
     <div className="app">
-      <PostsContext.Provider value={{ posts, setPosts }}>
+      <PostsContext.Provider
+        value={{ initPosts, setInitPosts, filteredPosts, setFilteredPosts }}
+      >
         <Router basename="/">
           <Header />
           <Switch>

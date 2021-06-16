@@ -22,3 +22,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.error {
+  color: rgb(201, 7, 46);
+  font-weight: bold;
+}

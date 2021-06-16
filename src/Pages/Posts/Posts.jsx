@@ -4,10 +4,12 @@ import PostsContext from "../../context";
 import SinglePost from "../../Components/SinglePost/SinglePost";
 import { loadPosts } from "../../services/api/postsApi";
 import Loader from "../../Components/Loader/Loader";
+import Message from "../../Components/Message/Message";
 import "./posts.css";
 
 const Posts = () => {
-  const { posts, setPosts } = useContext(PostsContext);
+  const { filteredPosts, setInitPosts, setFilteredPosts } =
+    useContext(PostsContext);
   const [isLoading, setIsLoading] = useState(false);
   const [isAnchorVisible, setIsAnchorVisible] = useState(false);
 
@@ -29,7 +31,9 @@ const Posts = () => {
       try {
         setIsLoading(true);
         const result = await loadPosts();
-        setPosts(result.data.response.results);
+        const posts = result.data.response.results;
+        setInitPosts(posts);
+        setFilteredPosts(posts);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
@@ -39,15 +43,19 @@ const Posts = () => {
     fetchData();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [setPosts]);
+  }, [setFilteredPosts, setInitPosts]);
   return (
     <>
       <div className="posts-wrapper">
-        {isLoading && <Loader />}
-        {posts.map((post) => (
-          <SinglePost key={post.id} post={post} />
-        ))}
+        {filteredPosts.length === 0 ? (
+          <Message type="error" msg="Sorry, we have no posts!" />
+        ) : (
+          filteredPosts.map((post) => <SinglePost key={post.id} post={post} />)
+        )}
       </div>
+
+      {isLoading && <Loader />}
+
       {isAnchorVisible && (
         <div className="top-anchor" onClick={toTop}>
           TO TOP
