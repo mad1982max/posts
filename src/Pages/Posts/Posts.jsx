@@ -5,7 +5,9 @@ import "./posts.css";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
+
   useEffect(() => {
+    console.log("--in useEffect");
     async function fetchData() {
       try {
         const result = await loadPosts();

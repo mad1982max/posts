@@ -2,7 +2,7 @@ import dateTransformToString from "../../services/dateTransform";
 import "./singlePost.css";
 
 const SinglePost = ({ post }) => {
-  console.log(post);
+  // console.log(post);
   const dateToShow = dateTransformToString(post.webPublicationDate);
   return (
     <div key={post.id} className="post-card">
