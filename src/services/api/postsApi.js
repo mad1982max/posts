@@ -3,7 +3,7 @@ import { query, apiRoute } from "../../config";
 
 export const loadPosts = () =>
   axios.get(
-    `${apiRoute}?show-fields=${query["show-fields"]}&show-tags=${query["show-tags"]}&q=${query.q}&api-key=${query["api-key"]}`
+    `${apiRoute}?show-fields=${query["show-fields"]}&page-size=${query["page-size"]}&show-tags=${query["show-tags"]}&q=${query.q}&api-key=${query["api-key"]}`
   );
 
 // export const loadPosts = () =>

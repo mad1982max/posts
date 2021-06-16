@@ -7,12 +7,10 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    console.log("--in useEffect");
     async function fetchData() {
       try {
         const result = await loadPosts();
         setPosts(result.data.response.results);
-        console.log(result.data.response);
       } catch (error) {
         console.log(error);
       }

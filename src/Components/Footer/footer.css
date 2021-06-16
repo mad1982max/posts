@@ -1,0 +1,9 @@
+.footer {
+  padding: 15px;
+  background: rgb(121, 210, 216);
+  margin-top: auto;
+}
+
+.footer span {
+  font-weight: bold;
+}
