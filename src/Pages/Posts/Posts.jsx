@@ -32,6 +32,13 @@ const Posts = () => {
         setIsLoading(true);
         const result = await loadPosts();
         const posts = result.data.response.results;
+        const filteredPosts = posts.sort((a, b) => {
+          if (a.webPublicationDate > b.webPublicationDate) {
+            return -1;
+          } else {
+            return 1;
+          }
+        });
         setInitPosts(posts);
         setFilteredPosts(posts);
         setIsLoading(false);
